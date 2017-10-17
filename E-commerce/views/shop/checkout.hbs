@@ -1,0 +1,371 @@
+
+
+
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active">Checkout</li>
+    </ol>
+</div>
+<!-- Cart view section -->
+<section id="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkout-area">
+                    <div id="charge-error" class="alert alert-danger {{#if noError}}hidden{{/if}}">
+                        {{errMsg}}
+                    </div>
+                    <form action="/checkout" method="post" id="checkout-form">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkout-left">
+                                    <div class="panel-group" id="accordion">
+                                        <!-- Coupon section -->
+
+                                        <!-- Billing Details -->
+                                        <div class="panel panel-default checkout-billaddress panel-lg">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="billing">
+                                                        Billing Details
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="fNameBill" class ="input" placeholder="Full Name*"  required pattern="[A-Za-z+([A-Za-z ])*$]">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="companyNameBill" class ="input" placeholder="Company name" required pattern="[A-Za-z+([A-Za-z ])*$]">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="email" name="emailBill" class ="input" placeholder="Email*: abc@gmail.com" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="tel" name="phoneBill" class ="input" placeholder="Phone*: 111-111-1111" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="addressBill" placeholder="Street Name*" class ="input" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <select class ="input" name="countryBill" id="countryBill" required>
+                                                                    <option value="0">Select Your Country</option>
+                                                                    <option value="1">Australia</option>
+                                                                    <option value="2">Afganistan</option>
+                                                                    <option value="3">Bangladesh</option>
+                                                                    <option value="4">Belgium</option>
+                                                                    <option value="5">Brazil</option>
+                                                                    <option value="6">Canada</option>
+                                                                    <option value="7">China</option>
+                                                                    <option value="8">Denmark</option>
+                                                                    <option value="9">Egypt</option>
+                                                                    <option value="10">India</option>
+                                                                    <option value="11">Iran</option>
+                                                                    <option value="12">Israel</option>
+                                                                    <option value="13">Mexico</option>
+                                                                    <option value="14">UAE</option>
+                                                                    <option value="15">UK</option>
+                                                                    <option value="16">USA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="aNameBill" placeholder="Appartment Number*" class ="input" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="cityBill" placeholder="City*" class ="input" required pattern="[A-Za-z]*$">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="disBill" placeholder="District*" class ="input" required pattern="[A-Za-z]*$">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="zipBill" placeholder="Zipcode*: 02120" class ="input" pattern="[0-9]{5}" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Shipping Address -->
+                                        <div class="panel panel-default checkout-billaddress">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" id="shipping">
+                                                        Shippping Address
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill" id="checkbox">
+                                                                <input type="checkbox" name="checkMail" id="check" onclick="fillMailing(this.form)">Same as billing address
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" id="name" class="form-control input" name="name" placeholder="Full name*" required pattern="[A-Za-z+([A-Za-z ])*$]"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="companyNameMail" placeholder="Company Name*" class ="input" required pattern="[A-Za-z+([A-Za-z ])*$]">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="email" name="emailMail" placeholder="Email Address*: abc@gmail.com" class ="input" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="tel" name="phoneMail" placeholder="Phone*: 111-111-1111" class ="input" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" id="address" class="form-control input" name="address" placeholder="Street Name*" required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <select class ="input" name="countryMail" id="countryMail" required>
+                                                                    <option value="0">Select Your Country</option>
+                                                                    <option value="1">Australia</option>
+                                                                    <option value="2">Afganistan</option>
+                                                                    <option value="3">Bangladesh</option>
+                                                                    <option value="4">Belgium</option>
+                                                                    <option value="5">Brazil</option>
+                                                                    <option value="6">Canada</option>
+                                                                    <option value="7">China</option>
+                                                                    <option value="8">Denmark</option>
+                                                                    <option value="9">Egypt</option>
+                                                                    <option value="10">India</option>
+                                                                    <option value="11">Iran</option>
+                                                                    <option value="12">Israel</option>
+                                                                    <option value="13">Mexico</option>
+                                                                    <option value="14">UAE</option>
+                                                                    <option value="15">UK</option>
+                                                                    <option value="16">USA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="aNameMail" placeholder="Appartment Numaber*" class ="input" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="cityMail" placeholder="City*" class ="input" required pattern="[A-Za-z]*$">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="districtMail" placeholder="District*" class ="input" required pattern="[A-Za-z]*$">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="checkout-single-bill">
+                                                                <input type="text" name="zipMail" placeholder="Zipcode*: 02120" class ="input" pattern="[0-9]{5}" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="checkout-single-bill">
+                                                                <textarea cols="8" rows="3" placeholder="Special Notes" class ="input"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default checkout-billaddress">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" id="shipping">
+                                                        Payement Details
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="card-name">Card Holder Name</label>
+                                                                    <input type="text" id="card-name" class="form-control" required />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="card-number">Credit Card Number</label>
+                                                                    <input type="text" id="card-number" class="form-control" required />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-6">
+                                                                <div class="form-group">
+                                                                    <label for="card-expiry-month">Card Expiration Month</label>
+                                                                    <input type="text" id="card-expiry-month" class="form-control" required />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-6">
+                                                                <div class="form-group">
+                                                                    <label for="card-expiry-year">Card Expiration Year</label>
+                                                                    <input type="text" id="card-expiry-year" class="form-control" required />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="card-cvc">CVC</label>
+                                                                    <input type="text" id="card-cvc" class="form-control" required />
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="checkout-right">
+                                    <h4>Order Summary</h4>
+                                    <div class="order-summary-area">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Total</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{# each products}}
+                                                <tr>
+                                                    <td>{{this.item.title}}<strong> x  {{this.qty}}</strong></td>
+                                                    <td>{{this.price}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th>Subtotal</th>
+                                                <td>{{totalPrice}}</td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <h4>Payment Method</h4>
+                                    <div class="payment-method">
+                                        <label for="cashdelivery"><input type="radio" id="cashdelivery" name="optionsRadios"> Master Card </label>
+                                        <label for="paypal"><input type="radio" id="paypal" name="optionsRadios" checked> Visa </label>
+                                        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark" id="paypalImg">
+                                        <button type="submit" class="btn btn-success" id="closePanel">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#closePanel').click(function(){
+            $('.panel-collapse:not(".in")')
+                    .collapse('show');
+        });
+        function fillMailing(f){
+            if(f.checkMail.checked==true){
+                f.name.value=f.fNameBill.value;
+                f.companyNameMail.value=f.companyNameBill.value;
+                f.emailMail.value=f.emailBill.value;
+                f.phoneMail.value=f.phoneBill.value;
+                f.address.value=f.addressBill.value;
+                f.countryMail.value=f.countryBill.value;
+                f.aNameMail.value=f.aNameBill.value;
+                f.cityMail.value=f.cityBill.value;
+                f.districtMail.value=f.disBill.value;
+                f.zipMail.value=f.zipBill.value;
+
+            }
+            else{
+                f.name.value="";
+                f.lNameMail.value="";
+                f.companyNameMail.value="";
+                f.emailMail.value="";
+                f.phoneMail.value="";
+                f.address.value="";
+
+                f.aNameMail.value="";
+                f.cityMail.value="";
+                f.districtMail.value="";
+                f.zipMail.value="";
+            }
+        }
+    </script>
+</section>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="/javascripts/checkout.js"></script>

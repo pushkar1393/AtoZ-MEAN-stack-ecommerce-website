@@ -1,0 +1,109 @@
+<style>
+
+
+    #map{
+        height:300px;
+        width:100%;
+        box-shadow: 3px 3px 10px gray;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+</style>
+
+
+<div ng-app="mapsApp"  ng-controller="MapCtrl">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="margin-bottom:20px;">FIND A STORE NEAR YOU</h3>
+                <div class="row">
+
+                    <div class="btn-group btn-group-justified" ng-repeat="marker in markers | orderBy : 'title'">
+                        <a href="#" class="btn btn-default"  ng-bind="marker.title"  ng-click="openInfoWindow($event, marker)" ></a>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="map"></div>
+        </div></div></div>
+
+<script>
+
+
+    var cities = [
+        {
+            city : 'Tremont Street',
+            desc : 'Home',
+            lat : 42.333335,
+            long : -71.102295
+        },
+        {
+            city : 'Northeastern University',
+            desc : 'The Heart of Boston',
+            lat : 42.339854,
+            long : -71.089204
+        },
+        {
+            city : 'Harvard Square',
+            desc : 'Computer city',
+            lat : 42.373791,
+            long : -71.118934
+        },
+        {
+            city : 'MIT',
+            desc : 'College',
+            lat : 42.359788,
+            long :  -71.094576
+        }
+    ];
+    var sampleApp = angular.module('mapsApp', []);
+    sampleApp.controller('MapCtrl', function ($scope) {
+
+        var mapOptions = {
+            zoom: 12,
+            center: new google.maps.LatLng(42.363029,-71.055107),
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        }
+
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        $scope.markers = [];
+
+        var infoWindow = new google.maps.InfoWindow();
+
+        var createMarker = function (info){
+
+            var marker = new google.maps.Marker({
+                map: $scope.map,
+                position: new google.maps.LatLng(info.lat, info.long),
+                title: info.city
+            });
+            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent('<b>' + marker.title + '</b>' + marker.content);
+                infoWindow.open($scope.map, marker);
+            });
+
+            $scope.markers.push(marker);
+
+        }
+
+        for (i = 0; i < cities.length; i++){
+            createMarker(cities[i]);
+        }
+
+        $scope.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+        }
+
+    });
+
+</script>

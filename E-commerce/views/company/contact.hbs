@@ -1,0 +1,103 @@
+<!-- content -->
+<div class="container">
+    <div class="main">
+        <div class="contact">
+            <div class="contact_info">
+                <h2>get in touch</h2>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424396.3176723366!2d150.92243255000002!3d-33.7969235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney+NSW%2C+Australia!5e0!3m2!1sen!2sin!4v1430912648478" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <div class="alert alert-danger" style="display:none;height:40px;width:96%;margin-right:16%;">
+                     <p id="all"></p>
+                </div>
+                <form method="post">
+                    <div>
+                        <p id="all" style="color: red"></p>
+                        <span><label>Name</label></span>
+                        <span><input id="userName" name="userName" type="text" class="textbox"></span>
+
+                    </div>
+                    <div>
+                        <span><label>E-mail</label></span>
+                        <span><input id="userEmail" name="userEmail" type="text" class="textbox"></span>
+
+                    </div>
+                    <div>
+                        <span><label>Mobile</label></span>
+                        <span><input id="userPhone" name="userPhone" type="text" class="textbox"></span>
+
+                    </div>
+                    <div>
+                        <span><label>Subject</label></span>
+                        <span><textarea id="userMsg" name="userMsg"> </textarea></span>
+
+                    </div>
+                    <div>
+                        <span><input id="submit" type="submit" class="" value="Submit us"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    var regExpName=/^[A-Za-z]+([A-Za-z, ])*$/;
+    var regExpNum=/\d{3}-\d{3}-\d{4}/;
+    var regExpEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    $('#submit').click(function() {
+        if($('#userName').val().trim()==''){
+           $("#all").text("Please enter Name.");
+           $('.alert-danger').css('display','block');
+           return false;
+        }
+        else if(!(regExpName.test($('#userName').val().trim()))){
+            $("#all").text("Please enter valid Name.");
+            $('.alert-danger').css('display','block');
+            return false;
+        }
+        else if($('#userEmail').val().trim()==''){
+           $("#all").text("Please enter E-mail.");
+           $('.alert-danger').css('display','block');
+           return false;
+        }
+        else if(!(regExpEmail.test($('#userEmail').val().trim()))){
+            $("#all").text("Please enter valid E-mail.");
+            $('.alert-danger').css('display','block');
+            return false;
+        }
+        else if($('#userPhone').val().trim()==''){
+           $("#all").text("Please enter Mobile Number.");
+           $('.alert-danger').css('display','block');
+
+           return false;
+        }
+        else if(!(regExpNum.test($('#userPhone').val().trim()))){
+            $("#all").text("Please enter valid Mobile Number.");
+            $('.alert-danger').css('display','block');
+            return false;
+        }
+        else if($('#userMsg').val().trim() == ""){
+           $("#all").text("Please enter Subject.");
+           $('.alert-danger').css('display','block');
+           return false;
+        }
+        else {
+        $('.alert-danger').css('display','none');
+        alert('Form submitted successfully');
+        return true;
+        }
+
+    });
+
+
+    });
+</script>
+
+
+

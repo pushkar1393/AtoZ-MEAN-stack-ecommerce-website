@@ -1,0 +1,396 @@
+<div class="container" >
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <h4>Search <a id="show-search-menu" href="#"><span class="fa fa-chevron-down hidden-lg hidden-md"></span></a></h4>
+
+<div class="well hidden-xs hidden-sm" id="search-menu">
+
+ <form class="form-inline">
+  <div class="form-group" class="searchMenu">
+    <label for="exampleInputName2">Category:</label>
+    <select class="form-control" id="handbags" style="width:90%;">
+        <option>Handbags</option>
+        <option>Facial Accesories</option>
+      </select>
+  </div>
+
+   <div class="form-group" class="searchMenu">
+    <label for="exampleInputEmail2" class="searchMenu">Keywords:</label>
+    <input class="form-control" id="exampleInputEmail2" class="searchMenu" placeholder="Looking for...">
+  </div>
+
+  <button type="submit" class="btn btn-default" id="searchMenu">Search</button>
+</form>
+
+</div>
+
+      <div class="categories-menu row">
+        <h4>Categories  <a id="show-categories-menu" href="#" style=""><span class="fa fa-chevron-down hidden-lg hidden-md"></span></a></h4>
+
+        <div id="categories-menu-content" class="hidden-xs hidden-sm">
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Apparel &amp; Accesories (29)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Electronics (142)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Home &amp; Garden (386)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Personal Care (10)</a>
+            </div>
+          <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Tools (14)</a>
+            </div>
+           <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Office (44)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Apparel &amp; Accesories (29)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Electronics (142)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Home &amp; Garden (386)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Personal Care (10)</a>
+            </div>
+          <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Tools (14)</a>
+            </div>
+           <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Office (44)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Apparel &amp; Accesories (29)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Electronics (142)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Home &amp; Garden (386)</a>
+            </div>
+            <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Personal Care (10)</a>
+            </div>
+          <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Tools (14)</a>
+            </div>
+           <div class="col-md-12 col-sm-4  col-xs-12" class="subCatg">
+              <a href="#">Office (44)</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class=" col-sm-4 hidden-xs">
+          <div class="btn-group sort-group">
+									<button class="btn btn-default no-action">Sort by:</button>
+									<button class="btn btn-default btn-sort active" type="Submit" name="SortBy" value="1"><i class="fa fa-sort-numeric-asc"></i></button>
+									<button class="btn btn-default btn-sort " type="Submit" name="SortBy" value="2"><i class="fa fa-sort-numeric-desc"></i></button>
+								</div>
+        </div>
+
+
+		<div class=" col-sm-4">
+          <div class="btn-group sort-group pagination  top-pagination" id="tPage" style="">
+
+
+		<button class="btn btn-default no-action disabled">«</button>
+
+		<button class="btn btn-default btn-sort active" type="Submit" name="wp" value="1">1</button>
+
+		<button class="btn btn-default btn-sort " type="Submit" name="wp" value="2">2</button>
+
+		<button class="btn btn-default btn-sort " type="Submit" name="wp" value="3">3</button>
+
+		<button class="btn btn-default btn-sort " type="Submit" name="wp" value="4">4</button>
+
+		<button class="btn btn-default btn-sort" type="Submit" name="wp" value="2">»</button>
+
+	</div>
+		</div>
+        <div class="col-sm-4  hidden-xs">
+          <div class="input-group pull-right">
+				<div class="input-group-addon">Result per Page</div>
+				<select class="form-control" id="results">
+					<option>10</option>
+					<option>20</option>
+					<option>30</option>
+					<option>40</option>
+					<option>50</option>
+				</select>
+			</div>
+        </div>
+      </div>
+	<div class="row product-list" id="tab1">
+
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+
+	                </p>
+
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+      <div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						Saffiano Leather Crossbody
+	                </p>
+	                <p class="text-muted">11584123</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+        </div>
+        <div class="row product-list" id="tab2">
+      <div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						Saffiano Leather Crossbody
+	                </p>
+	                <p class="text-muted">11584123</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+      <div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						Saffiano Leather Crossbody
+	                </p>
+	                <p class="text-muted">11584123</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-3 col-xs-6">
+        	<div class="product">
+            	<div class="product-info">
+					<button type="submit" name="imageSubmit" value="btn_was_clicked"><img src="" class="img-responsive tb-center tb-maxheight-115" alt="..."></button>
+	                <p class="primary-font">
+						TH Monogram Coated Canvas Cross Body
+	                </p>
+	                <p class="text-muted">11591347</p>
+
+	            </div>
+				<div class="btn-group product-action">
+
+ 				<button type="submit" name="Add to cart" class="btn btn-primary cart-btn"><i class="fa fa-shopping-cart">
+				</i>
+
+				Add to cart
+
+				</button>
+				</div>
+			</div>
+        </div>
+
+	</div>
+	</div>
+
+  </div>
+
+</div>

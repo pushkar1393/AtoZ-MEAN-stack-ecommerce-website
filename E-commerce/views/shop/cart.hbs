@@ -1,0 +1,47 @@
+<h3>MY CART</h3>
+{{# if products }}
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <ul class="list-group">
+                {{# each products}}
+
+                    <li class="list-group-item">
+                        <span style="padding-right:20px;"><strong>{{this.item.title}}</strong></span>
+                        <span class="badge">{{this.qty}}</span>
+                        <span class="pull-right">*</span>
+                        <span class="label label-success pull-right">${{this.price}}</span>
+                        <span class="pull-right" style="margin-right:20px;">
+                            <a href="/reduce/{{this.item._id}}"><button class="btm btn-primary btn-xs dropdown-toggle" type="button">Remove</button></a>
+                        </span>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <strong>Total : {{totalPrice}}</strong>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row" style="padding-bottom:30px;">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <a href="/checkout" class="btn btn-success">Checkout</a>
+        </div>
+    </div>
+
+{{ else }}
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <h2>No items in the cart</h2>
+        </div>
+    </div>
+
+{{/if}}
+
+
